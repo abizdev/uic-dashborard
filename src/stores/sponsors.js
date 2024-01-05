@@ -7,12 +7,10 @@ export const useSponsorsStore = defineStore('sponsors', {
     sponsorsList: null
   }),
   actions: {
-    async getSponsorsList() {
+    async getSponsorsList(page=1) {
       try {
-        const res = await axios.get(`${this.BASE_URL}/sponsor-list?page=1`)
+        const res = await axios.get(`${this.BASE_URL}/sponsor-list?page=${page}`)
         this.sponsorsList = await res.data.results
-
-        console.log(res);
       } catch (error) {
         console.log('error in getting sponsors list', error);
       }

@@ -6,7 +6,7 @@
     <span class="text-sm font-medium sum">{{ sponsor.sum }} <span class="text-xs text-slate-300">UZS</span></span>
     <span class="text-sm font-medium sum-spend">{{ sponsor.spent }} <span class="text-xs text-slate-300">UZS</span></span>
     <span class="text-sm date">{{ date }}</span>
-    <span class="text-sm status">{{ sponsor.get_status_display }}</span>
+    <span class="text-sm status" :class="sponsorStatusColor">{{ sponsor.get_status_display }}</span>
     <span class="text-sm comment">
       <img src="../assets/images/watch-sponsor.svg" alt="sponsor-info">
     </span>
@@ -29,6 +29,10 @@ let day = dateObj.getDate() < 10 ? `0${dateObj.getDate()}` : dateObj.getDate()
 
 let date = `${day}.${month}.${year}`
 
+const sponsorStatusColor = sponsor.get_status_display === 'Yangi' ? 
+  'text-sky-500': sponsor.get_status_display === 'Moderatsiyada' ?
+  'text-orange-500':  sponsor.get_status_display === 'Tasdiqlangan' ?
+  'text-lime-500': 'text-slate-500'
 </script>
 
 <style lang="scss">
