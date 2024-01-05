@@ -1,12 +1,12 @@
 <template>
   <div class="sponsor bg-white">
-    <span class="text-sm number">1</span>
-    <span class="text-sm font-medium name">Alimov Abror Xabibullayevich</span>
-    <span class="text-sm phone">+99899 973-72-60</span>
-    <span class="text-sm font-medium sum">30 000 000 <span class="text-xs text-slate-300">UZS</span></span>
-    <span class="text-sm font-medium sum-spend">0 <span class="text-xs text-slate-300">UZS</span></span>
-    <span class="text-sm date">15.01.2021</span>
-    <span class="text-sm status">Yangi</span>
+    <span class="text-sm number">{{ index }}</span>
+    <span class="text-sm font-medium name">{{ sponsor.full_name }}</span>
+    <span class="text-sm phone">{{ sponsor.phone }}</span>
+    <span class="text-sm font-medium sum">{{ sponsor.sum }} <span class="text-xs text-slate-300">UZS</span></span>
+    <span class="text-sm font-medium sum-spend">{{ sponsor.spent }} <span class="text-xs text-slate-300">UZS</span></span>
+    <span class="text-sm date">{{ date }}</span>
+    <span class="text-sm status">{{ sponsor.get_status_display }}</span>
     <span class="text-sm comment">
       <img src="../assets/images/watch-sponsor.svg" alt="sponsor-info">
     </span>
@@ -14,6 +14,20 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps(['sponsor', 'index'])
+const { sponsor } = props
+
+// getting Date from sponsor object
+const dateString = sponsor.created_at
+const dateObj = new Date(dateString)
+
+let year = dateObj.getFullYear()
+let month = dateObj.getMonth() + 1
+let day = dateObj.getDate() < 10 ? `0${dateObj.getDate()}` : dateObj.getDate()
+
+let date = `${day}.${month}.${year}`
 
 </script>
 

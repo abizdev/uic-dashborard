@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  height: 100vh;
+  background: #F5F5F7;
+}
+#app {
+  height: 100%;
+}
 .container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
 }
