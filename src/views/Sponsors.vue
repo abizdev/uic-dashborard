@@ -8,10 +8,8 @@
 </template>
 
 <script setup>
-import SponsorsHeading from '@/components/SponsorsHeading.vue';
-import SponsorsList from '@/components/SponsorsList.vue';
-
-
+import SponsorsHeading from '@/components/sponsors/SponsorsHeading.vue';
+import SponsorsList from '@/components/sponsors/SponsorsList.vue';
 </script>
 
 <style lang="scss">

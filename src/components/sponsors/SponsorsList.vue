@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import SponsorItem from '@/components/SponsorItem.vue';
+import SponsorItem from './SponsorItem'
 
 import { computed } from 'vue';
 
