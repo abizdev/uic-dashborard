@@ -4,34 +4,49 @@
     <div class="auth__content flex flex-col px-8 py-8 bg-white rounded-xl">
       <h3 class="auth__content--title text-2xl mb-11">Kirish</h3>
       <form class="auth__form flex flex-col gap-y-5">
-        <div class="auth__form--item flex flex-col">
-          <label for="login">login</label>
-          <input type="text" id="login" placeholder="login">
-        </div>
-        <div class="auth__form--item flex flex-col">
-          <label for="password">parol</label>
-          <input type="password" id="password" placeholder="password">
-        </div>
-        <button class="btn auth__form--btn">kirish</button>
+        <FormInput labelText="username" id="username" >
+          <input 
+            type="text" 
+            placeholder="adm8904" 
+            id="username" 
+            class="py-3 px-4 rounded-md"
+            v-model="userName"
+          >
+        </FormInput>
+        <FormInput labelText="password" id="password" >
+          <input 
+            type="password" 
+            placeholder="password" 
+            id="password" 
+            class="py-3 px-4 rounded-md"
+            v-model="password"
+          >
+        </FormInput>
+        <button class="btn auth__form--btn" :disabled="btnDisabled" @click.prevent="userLogIn(userName, password)">kirish</button>
       </form>
     </div>
   </div>
 </template>
 
-<script setup>
-import axios from 'axios';
+<script setup lang="ts">
+import FormInput from '@/components/form/FormInput.vue';
 
-const getInfo = async () => {
-  try {
-    const info = await axios.get('https://club.metsenat.uz/api/v1/dashboard/')
-    const data = await info.data
+import { ref, watch } from 'vue';
 
-    console.log(data);
-  } catch (error) {
-    console.log("Whoooops error", error);
+import { useUserStore } from '../stores/user'
+
+const { userLogIn } = useUserStore()
+
+const userName = ref<string>('')
+const password = ref<string>('')
+let btnDisabled = ref<boolean>(true)
+
+watch([userName, password], (formVals) => {
+  if(formVals[0] && formVals[1]) {
+    btnDisabled.value = false
   }
-}
-getInfo()
+})
+
 </script>
 
 <style lang="scss">
@@ -46,6 +61,9 @@ getInfo()
   &--logo {
     width: 315px;
     margin-bottom: 48px;
+  }
+  &__content {
+    width: 312px;
   }
   &__form {
     max-width: 315px;
@@ -64,10 +82,12 @@ getInfo()
       border: 1px solid #E0E7FF;
       font-size: 15px;
       line-height: 18px;
-      color: #2E384D59;
+      color: #000000;
       padding: 12px 15px;
       outline: none;
       &::placeholder {
+        font-size: 15px;
+        line-height: 18px;  
         color: #2E384D59;
       }
     }
@@ -86,4 +106,4 @@ getInfo()
   font-weight: 500;
   padding: 15px 0;
 }
-</style>
+</style>../stores/auth

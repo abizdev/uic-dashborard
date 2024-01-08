@@ -1,37 +1,72 @@
 <template>
-  <div class="sponsors-bottom flex justify-between items-center">
-    <p>59 tadan  1-10 ko‘rsatilmoqda</p>
+  <div class="sponsors-bottom flex justify-between items-center mt-6">
+    <p>100 tadan  1-10 ko‘rsatilmoqda</p>
 
-    <div class="sponsors-pagination">
-      <span>Ko‘rsatish</span>
-      <select>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <div class="sponsors-pagination__items">
-        <button class="sponsors-pagination-btn sponsors-pagitation-prev">
-          <img src="../assets/images/chevron-left.svg" alt="prev">
-        </button>
+    <div class="sponsors-pagination flex items-center gap-5">
+      <div class="sponsor-pagination-options flex items-center gap-3">
+        <span>Ko‘rsatish</span>
+        <select v-model="currentPage" @change="togglePages(null, currentPage)">
+          <option
+            v-for="item in listArr"
+            :key="item"
+            :value="item"
+          >
+            {{ item }}
+          </option>
+        </select>
+      </div>
+      <div class="sponsors-pagination__items flex items-center gap-2">
+        <AppButton 
+          @click="togglePages('prev')"
+          :disabled="currentPage == 1"
+          :class="{ disabled: currentPage == 1 }"
+          class="sponsors-pagination-btn sponsors-pagitation-prev" 
+        >
+          <img src="../../assets/images/chevron-left.svg" alt="prev">
+        </AppButton>
 
-        <button class="sponsors-pagination-btn">1</button>
+        <AppButton
+          v-for="page in listArr" 
+          :key="page"
+          @click="togglePages(null, page)"
+          :class="{ active: page === currentPage }"
+          class="sponsors-pagination-btn text-sm"
+        >
+          {{ page }}
+        </AppButton>
 
-        <button class="sponsors-pagination-btn sponsor-pagitation-next">
-          <img src="../assets/images/chevron-right.svg" alt="next">
-        </button>
+        <AppButton 
+          @click="togglePages('next')"
+          :disabled="currentPage == 10"
+          :class="{ disabled: currentPage == 10 }"
+          class="sponsors-pagination-btn sponsor-pagitation-next" 
+        >
+          <img src="../../assets/images/chevron-right.svg" alt="next">
+        </AppButton>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+import { useSponsorsStore } from '@/stores/sponsors';
+
+import AppButton from '../Button.vue';
+
+const sponsors = useSponsorsStore()
+
+const listArr= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const currentPage: { value: number } = ref(1)
+
+const togglePages = (val: string | null, page: number=1) => {
+  currentPage.value = val == 'next' ? 
+    ++currentPage.value : val == 'prev' ? 
+    --currentPage.value : page
+  sponsors.getSponsorsList(currentPage.value)
+}
 
 </script>
 
@@ -46,10 +81,26 @@
       }
     }
     &-pagination {
+      &-btn {
+        width: 32px;
+        height: 32px;
+        padding: 5px 4px;
+        border-radius: 4px;
+        border: 1px solid #DFE3E8;
+        background: #FFF;
+        color: #000000;
 
-      &-btn {}
-      &-prev {}
-      &-next {}
+        &.active {
+          border-radius: 4px;
+          border: 1px solid #36F;
+          background: #FFF;
+          color: #36F;
+        }
+        &.disabled {
+          opacity: 0.5;
+          border: none;
+        }
+      }
     }
   }
 </style>

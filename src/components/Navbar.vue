@@ -6,13 +6,12 @@
       </a>
       <div class="navbar__user">
         <a href="#!" class="profile">
-          <span class="profile--name">Shohrux</span>
+          <span class="profile--name text-capitalize">{{ username }}</span>
           <span class="profile--img">
             <img src="../assets/images/user.svg" alt="user-icon">
           </span>
         </a>
-
-        <button>
+        <button @click.prevent="userLogOut()">
           <img src="../assets/images/icon-log-out.svg" alt="log-out">
         </button>
       </div>
@@ -20,7 +19,13 @@
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { useUserStore } from '../stores/user'
+
+const { username } = JSON.parse(localStorage.getItem('user'))
+
+const { userLogOut } = useUserStore()
+
 </script>
 
 <style lang="scss">
@@ -43,7 +48,7 @@
     gap: 40px;
   }
   .profile {
-    width: 133px;
+    /* width: 133px; */
     border-radius: 6px;
     background: #F1F1F3;
     padding: 4px;

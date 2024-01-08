@@ -11,8 +11,8 @@
   </div>
 </template>
 
-<script setup>
-  const sponsorsHeadingList = [
+<script setup lang="ts">
+  const sponsorsHeadingList: {class: string, text: string}[] = [
     {class: 'number', text: '#'},
     {class: 'name', text: 'f.i.sh.'},
     {class: 'phone', text: 'Tel.Raqami'},

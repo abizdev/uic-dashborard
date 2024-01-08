@@ -12,8 +12,8 @@
   </div>
 </template>
 
-<script setup>
-import SponsorItem from './SponsorItem'
+<script setup lang="ts">
+import SponsorItem from './SponsorItem.vue'
 
 import { computed } from 'vue';
 

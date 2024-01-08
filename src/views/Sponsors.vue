@@ -3,13 +3,15 @@
     <div class="sponsors-list">
       <SponsorsHeading />
       <SponsorsList />
+      <SponsorsBottom />
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import SponsorsHeading from '@/components/sponsors/SponsorsHeading.vue';
 import SponsorsList from '@/components/sponsors/SponsorsList.vue';
+import SponsorsBottom from '@/components/sponsors/SponsorsBottom.vue';
 </script>
 
 <style lang="scss">
@@ -21,7 +23,7 @@ import SponsorsList from '@/components/sponsors/SponsorsList.vue';
     text-align: left;
     text-transform: capitalize;
   }
-  .phone {width: 124px;}
+  .phone {width: 130px;}
   .sum {width: 132px;}
   .sum-spend {width: 144px;}
   .date {width: 73px;}
