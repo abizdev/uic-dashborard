@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useTabsStore = defineStore('tabs', {
   state: () => ({
-    activeComponent: 'Sponsors'
+    activeComponent: 'Dashboard'
   }),
   actions: {
     toggleActiveItem(id: string) {
