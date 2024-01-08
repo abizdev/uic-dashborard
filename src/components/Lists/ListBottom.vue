@@ -1,9 +1,9 @@
 <template>
-  <div class="sponsors-bottom flex justify-between items-center mt-6">
+  <div class="lists-bottom flex justify-between items-center mt-6">
     <p>100 tadan  1-10 ko‘rsatilmoqda</p>
 
-    <div class="sponsors-pagination flex items-center gap-5">
-      <div class="sponsor-pagination-options flex items-center gap-3">
+    <div class="lists-pagination flex items-center gap-5">
+      <div class="list-pagination-options flex items-center gap-3">
         <span>Ko‘rsatish</span>
         <select v-model="currentPage" @change="togglePages(null, currentPage)">
           <option
@@ -15,12 +15,12 @@
           </option>
         </select>
       </div>
-      <div class="sponsors-pagination__items flex items-center gap-2">
+      <div class="lists-pagination__items flex items-center gap-2">
         <AppButton 
           @click="togglePages('prev')"
           :disabled="currentPage == 1"
           :class="{ disabled: currentPage == 1 }"
-          class="sponsors-pagination-btn sponsors-pagitation-prev" 
+          class="lists-pagination-btn lists-pagitation-prev" 
         >
           <img src="../../assets/images/chevron-left.svg" alt="prev">
         </AppButton>
@@ -30,7 +30,7 @@
           :key="page"
           @click="togglePages(null, page)"
           :class="{ active: page === currentPage }"
-          class="sponsors-pagination-btn text-sm"
+          class="lists-pagination-btn text-sm"
         >
           {{ page }}
         </AppButton>
@@ -39,7 +39,7 @@
           @click="togglePages('next')"
           :disabled="currentPage == 10"
           :class="{ disabled: currentPage == 10 }"
-          class="sponsors-pagination-btn sponsor-pagitation-next" 
+          class="lists-pagination-btn list-pagitation-next" 
         >
           <img src="../../assets/images/chevron-right.svg" alt="next">
         </AppButton>
@@ -49,29 +49,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 
-import { useSponsorsStore } from '@/stores/sponsors';
+import { useListsStore } from '@/stores/lists';
 
 import AppButton from '../Button.vue';
 
-const sponsors = useSponsorsStore()
+const { listType } = defineProps<{ listType: string }>()
+
+
+const lists = useListsStore()
 
 const listArr= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-const currentPage: { value: number } = ref(1)
+const currentPage = ref<number>(1)
 
 const togglePages = (val: string | null, page: number=1) => {
   currentPage.value = val == 'next' ? 
     ++currentPage.value : val == 'prev' ? 
     --currentPage.value : page
-  sponsors.getSponsorsList(currentPage.value)
+
+    lists.getList(listType, currentPage.value)
 }
 
 </script>
 
 <style lang="scss">
-  .sponsors {
+  .lists {
 
     &-bottom {
 
@@ -103,4 +107,4 @@ const togglePages = (val: string | null, page: number=1) => {
       }
     }
   }
-</style>
+</style>@/stores/lists

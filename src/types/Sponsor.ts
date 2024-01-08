@@ -1,4 +1,5 @@
-export interface SponsorItemProps = {
+
+export interface SponsorItemProps {
   sponsor: {
     id: number,
     full_name: string

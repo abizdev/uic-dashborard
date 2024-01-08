@@ -1,21 +1,21 @@
 <template>
-  <div class="sponsors container pb-20">
-    <div class="sponsors-list">
-      <SponsorsHeading />
-      <SponsorsList />
-      <SponsorsBottom />
+  <div class="lists container pb-20">
+    <div class="lists-content">
+      <ListHeading />
+      <List listType="sponsor" />
+      <ListBottom listType="sponsor" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import SponsorsHeading from '@/components/sponsors/SponsorsHeading.vue';
-import SponsorsList from '@/components/sponsors/SponsorsList.vue';
-import SponsorsBottom from '@/components/sponsors/SponsorsBottom.vue';
+import List from './Lists/List.vue';
+import ListHeading from './Lists/ListHeading.vue';
+import ListBottom from './Lists/ListBottom.vue';
 </script>
 
 <style lang="scss">
-.sponsors {
+.lists {
   text-align: center;
 
   .name {

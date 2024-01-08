@@ -30,6 +30,7 @@ const { userLogOut } = useUserStore()
 
 <style lang="scss">
 .navbar {
+  position: relative;
   background: #FFF;
   box-shadow: 0px 25px 40px 0px rgba(0, 0, 0, 0.03);
   padding: 12px 0;

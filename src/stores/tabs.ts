@@ -1,6 +1,4 @@
 import { defineStore } from "pinia";
-import Sponsors from "@/components/sponsors/Sponsors.vue";
-
 
 export const useTabsStore = defineStore('tabs', {
   state: () => ({

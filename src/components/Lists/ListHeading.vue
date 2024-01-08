@@ -1,8 +1,8 @@
 <template>
-  <div class="sponsors-heading">
+  <div class="list-heading">
     <span 
     class="uppercase text-xs text-slate-300 font-medium number"
-    v-for="(item, key) in sponsorsHeadingList"
+    v-for="(item, key) in listHeading"
     :key="key"
     :class="item.class"
     >
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-  const sponsorsHeadingList: {class: string, text: string}[] = [
+  const listHeading: {class: string, text: string}[] = [
     {class: 'number', text: '#'},
     {class: 'name', text: 'f.i.sh.'},
     {class: 'phone', text: 'Tel.Raqami'},
@@ -25,7 +25,7 @@
 </script>
 
 <style lang="scss">
-  .sponsors-heading {
+  .list-heading {
     display: flex;
     align-items: center;
     justify-content: space-around;

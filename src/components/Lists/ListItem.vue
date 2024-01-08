@@ -1,5 +1,5 @@
 <template>
-  <div class="sponsor bg-white">
+  <div class="list bg-white">
     <span class="text-sm number">{{ index }}</span>
     <span class="text-sm font-medium name">{{ sponsor.full_name }}</span>
     <span class="text-sm phone">{{ sponsor.phone }}</span>
@@ -48,11 +48,11 @@ const sponsorStatusColor: string = sponsor.get_status_display === 'Yangi' ?
 </script>
 
 <style lang="scss">
-.sponsor {
+.list {
   padding: 22px 28px 22px 16px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 6px;  
 }
-</style>../../types/types
+</style>
