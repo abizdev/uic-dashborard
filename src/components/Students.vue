@@ -12,4 +12,15 @@
 import List from './Lists/List.vue';
 import ListHeading from './Lists/ListHeading.vue';
 import ListBottom from './Lists/ListBottom.vue';
+
+
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
+
+if(route.redirectedFrom) {
+  console.log('reload');
+  
+  window.location.reload()
+}
 </script>

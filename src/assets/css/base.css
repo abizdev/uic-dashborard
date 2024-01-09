@@ -15,12 +15,6 @@ body {
   margin: 0 auto;
 }
 .btn {
-  padding: 8px 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 5px;
   border: 1px solid #B2B7C1;  
 }
 .btn.active {

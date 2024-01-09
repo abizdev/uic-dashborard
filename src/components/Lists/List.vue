@@ -1,10 +1,11 @@
 <template>
   <div class="sponsors-list-content flex flex-col gap-3">
     <ListItem 
-      v-for="(sponsor, key) in getList"
-      :key="sponsor.id"
+      v-for="(item, key) in getList"
+      :key="item.id"
       :index="key + 1"
-      :sponsor="sponsor"
+      :item="item"
+      :listType="listType"
     />
   </div>
 </template>

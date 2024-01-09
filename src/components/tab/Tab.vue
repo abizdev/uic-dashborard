@@ -4,11 +4,10 @@
       v-for="item in items" 
       :key="item.id"
       class="btn"
+      :text="item.text"
       :class="{ active: item.id == activeComponent }"
       @click="tabsStore.toggleActiveItem(item.id)"
-    >
-      {{ item.text }}
-    </Button>
+    />
   </div>
 </template>
 

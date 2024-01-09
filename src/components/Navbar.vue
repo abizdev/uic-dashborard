@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="navbar__content container">
-      <a href="#!" class="navbar--logo">
+      <router-link :to="{ name: 'main' }" class="navbar--logo">
         <img src="../assets/images/nav-logo.png" alt="nav-logo">
-      </a>
+      </router-link>
       <div class="navbar__user">
         <a href="#!" class="profile">
           <span class="profile--name text-capitalize">{{ username }}</span>

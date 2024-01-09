@@ -16,33 +16,32 @@
         </select>
       </div>
       <div class="lists-pagination__items flex items-center gap-2">
-        <AppButton 
+        <Button 
           @click="togglePages('prev')"
           :disabled="currentPage == 1"
           :class="{ disabled: currentPage == 1 }"
           class="lists-pagination-btn lists-pagitation-prev" 
         >
           <img src="../../assets/images/chevron-left.svg" alt="prev">
-        </AppButton>
+        </Button>
 
-        <AppButton
+        <Button
           v-for="page in listArr" 
           :key="page"
           @click="togglePages(null, page)"
           :class="{ active: page === currentPage }"
+          :text="`${page}`"
           class="lists-pagination-btn text-sm"
-        >
-          {{ page }}
-        </AppButton>
+        />
 
-        <AppButton 
+        <Button 
           @click="togglePages('next')"
           :disabled="currentPage == 10"
           :class="{ disabled: currentPage == 10 }"
           class="lists-pagination-btn list-pagitation-next" 
         >
           <img src="../../assets/images/chevron-right.svg" alt="next">
-        </AppButton>
+        </Button>
       </div>
     </div>
   </div>
@@ -53,7 +52,7 @@ import { ref, defineProps } from 'vue';
 
 import { useListsStore } from '@/stores/lists';
 
-import AppButton from '../Button.vue';
+import Button from '../Button.vue';
 
 const { listType } = defineProps<{ listType: string }>()
 

@@ -21,5 +21,6 @@ const bannerTabItems: {id: string, text: string}[] = [
 .banner {
   background: #ffffff;
   margin-bottom: 48px;
+  padding: 23px 0;
 }
 </style>
