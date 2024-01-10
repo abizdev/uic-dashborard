@@ -2,18 +2,18 @@
   <div class="client-card" v-if="client">
     <ClientTop />
     <div class="client-card__info">
-      <ClientInfoTitle v-if="clientType === 'student'" />
+      <ClientInfoTitle v-if="clientType === 'student'" text="Asosiy ma’lumotlar" />
       <ClientInfo :name="client.full_name" />
       <div class="client-card__info--items">
-        <ClientInfoItem title="telefon raqam" :info="client.phone"  />
+        <ClientInfoItem title="telefon raqam" :info="client.phone" />
       </div>
     </div>
 
-    <div class="client-card__info" v-if="clientType === 'student'">
-      <ClientInfoTitle v-if="clientType === 'student'" />
+    <div class="client-card__info" v-if="clientType === 'student' && client">
+      <ClientInfoTitle v-if="clientType === 'student'" text="O‘qish joyi haqida ma’lumot" />
       <div class="client-card__info--items">
-        <ClientInfoItem title="otm" :info="client.institute.name"  />
-        <ClientInfoItem title="kontract miqdori" :info="client.contract"  />
+        <ClientInfoItem title="otm" :info="client?.institute.name" />
+        <ClientInfoItem title="kontract miqdori" :info="client?.contract"  />
         <ClientInfoItem title="talabalik turi" :info="client.get_status_display"  />
       </div>
     </div>

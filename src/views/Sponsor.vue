@@ -10,10 +10,9 @@ import { useRoute } from 'vue-router';
 import { useClientStore } from '@/stores/client';
 
 const route = useRoute()
-const { name, params } = route
-console.log(route);
+const { params, } = route
 
 const client = useClientStore()
-client.getClientInfo(name, params.id)
+client.getClientInfo('sponsor', params.id)
 
 </script>

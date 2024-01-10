@@ -1,13 +1,13 @@
 <template>
   <div class="client-info__item">
-    <span>{{ title }}</span>
-    <h4>{{ info }}</h4>
+    <span>{{ props.title }}</span>
+    <h4>{{ props.info }}</h4>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ title: string, info: string | number }>()
-const { title, info } = props
+const props = defineProps<{ title: string, info: any }>()
+// const { title, info } = props
 </script>
 
 <style lang="scss">

@@ -15,8 +15,6 @@ export const useClientStore = defineStore('client', {
       try {
         const res = await axios.get(`${this.BASE_URL}/${client}-detail/${clientId}`)
         this.clientInfo = res.data
-
-        console.log(res.data);
       } catch (error) {
         console.log('error in getting client details', error);
         

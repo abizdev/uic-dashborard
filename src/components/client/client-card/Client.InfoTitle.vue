@@ -1,12 +1,12 @@
 <template>
   <div class="client-info__title flex items-center">
-    <span>Asosiy ma’lumotlar</span>
+    <span>{{ props.text }}</span>
     <span class="line"></span>
   </div>
 </template>
 
 <script setup lang="ts">
-
+const props = defineProps<{ text: string }>()
 </script>
 
 <style lang="scss">

@@ -20,7 +20,8 @@
           @click="togglePages('prev')"
           :disabled="currentPage == 1"
           :class="{ disabled: currentPage == 1 }"
-          class="lists-pagination-btn lists-pagitation-prev" 
+          class="lists-pagination-btn lists-pagitation-prev"
+          v-slot:btn-content
         >
           <img src="../../assets/images/chevron-left.svg" alt="prev">
         </Button>
@@ -38,7 +39,8 @@
           @click="togglePages('next')"
           :disabled="currentPage == 10"
           :class="{ disabled: currentPage == 10 }"
-          class="lists-pagination-btn list-pagitation-next" 
+          class="lists-pagination-btn list-pagitation-next"
+          v-slot:btn-content
         >
           <img src="../../assets/images/chevron-right.svg" alt="next">
         </Button>

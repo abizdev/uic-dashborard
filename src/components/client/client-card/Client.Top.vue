@@ -1,6 +1,6 @@
 <template>
   <div class="client-top flex justify-between items-center">
-    <h2>Talaba haqida</h2>
+    <h2>{{ clientType === 'sponsor' ? 'Homiy' : 'Talaba' }} haqida</h2>
 
     <Button class="edit" text="Tahrirlash">
       <template v-slot:btn-img>
@@ -12,6 +12,13 @@
 
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
+
+import { computed } from 'vue';
+
+import { useClientStore } from '@/stores/client';
+
+const clientStore = useClientStore()
+const clientType = computed(() => clientStore.clientType)
 
 </script>
 

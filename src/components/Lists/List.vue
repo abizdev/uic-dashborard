@@ -24,7 +24,3 @@ lists.getList(listType)
 
 const getList = computed(() => listType === 'sponsor' ? lists.sponsorsList : lists.studentsList)
 </script>
-
-
-
-@/stores/lists
