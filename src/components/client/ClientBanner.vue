@@ -1,25 +1,25 @@
 <template>
-  <div class="banner" v-if="client">
+  <div class="banner">
     <div class="banner-content container flex items-center gap-3.5">
       <router-link :to="{ name: 'main' }">
         <img src="../../assets/images/arrow-left.svg" alt="back">
       </router-link>
-      <h2 class="client-name">{{ client.full_name }}</h2>
-      <span class="client-status" v-if="clientType === 'sponsor'">{{ client.get_status_display }}</span>
+      
+      <h2 class="client-name">{{ clientInfo?.full_name }}</h2>
+      <span class="client-status" v-if="clientCategory === 'sponsor'">{{ clientInfo?.get_status_display }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
 import { computed } from 'vue';
 
 import { useClientStore } from '@/stores/client';
 
-const clientStore = useClientStore()
-const clientType = computed(() => clientStore.clientType)
-const client = computed(() => clientStore.clientInfo)
+const props = defineProps<{ clientCategory: string }>()
 
+const clientStore = useClientStore()
+const clientInfo = computed(() => props.clientCategory === 'sponsor' ? clientStore.sponsor : clientStore.student)
 
 </script>
 

@@ -5,18 +5,19 @@ import axios from "axios";
 export const useClientStore = defineStore('client', {
   state: () => ({
     BASE_URL: 'https://club.metsenat.uz/api/v1',
-    clientType: '',
-    clientInfo: null
+    sponsor: null,
+    student: null
   }),
   actions: {
-    async getClientInfo(client: string, clientId: number) {
-      this.clientType = client
-      
+    async getClientInfo(client: string, clientId: string) {
       try {
         const res = await axios.get(`${this.BASE_URL}/${client}-detail/${clientId}`)
-        this.clientInfo = res.data
-
-        console.log(res.data);
+       
+        if(client === 'sponsor') {
+          this.sponsor = res.data
+        } else {
+          this.student = res.data
+        }
       } catch (error) {
         console.log('error in getting client details', error);
         
