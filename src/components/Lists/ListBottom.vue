@@ -108,4 +108,4 @@ const togglePages = (val: string | null, page: number=1) => {
       }
     }
   }
-</style>@/stores/lists
+</style>

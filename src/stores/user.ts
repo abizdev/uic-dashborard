@@ -14,7 +14,7 @@ export const useUserStore = defineStore('user', {
         console.log(data);
 
         localStorage.setItem('user', JSON.stringify({ access: data.access, username }))
-        window.location.pathname = '/main'
+        window.location.pathname = '/dashboard'
         
       } catch(error) {
         alert('Username or password incorrect')

@@ -13,9 +13,8 @@
 </template>
 
 <script setup lang="ts">
-
   const props = defineProps<{ color: string, total: number }>()
-
+  
 </script>
 
 <style lang="scss">

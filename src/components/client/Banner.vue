@@ -1,7 +1,7 @@
 <template>
   <div class="banner">
     <div class="banner-content container flex items-center gap-3.5">
-      <router-link :to="{ name: 'main' }">
+      <router-link :to="`/${route.name}`">
         <img src="../../assets/images/arrow-left.svg" alt="back">
       </router-link>
       
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 import { useClientStore } from '@/stores/client';
 
@@ -20,6 +21,8 @@ const props = defineProps<{ clientCategory: string }>()
 
 const clientStore = useClientStore()
 const clientInfo = computed(() => props.clientCategory === 'sponsor' ? clientStore.sponsor : clientStore.student)
+
+const route = useRoute()
 
 </script>
 

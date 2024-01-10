@@ -1,6 +1,7 @@
 <template>
-  <div class="lists container pb-20">
-    <div class="lists-content">
+  <div class="lists pb-20">
+    <Banner activeItem="sponsors" />
+    <div class="lists-content container">
       <ListHeading />
       <List listType="sponsor" />
       <ListBottom listType="sponsor" />
@@ -9,9 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import List from './Lists/List.vue';
-import ListHeading from './Lists/ListHeading.vue';
-import ListBottom from './Lists/ListBottom.vue';
+import Banner from '../../components/Banner.vue'
+import List from '../../components/Lists/List.vue';
+import ListHeading from '../../components/Lists/ListHeading.vue';
+import ListBottom from '../../components/Lists/ListBottom.vue';
 
 </script>
 

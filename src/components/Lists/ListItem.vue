@@ -51,6 +51,7 @@ const sponsorStatusColor: string = item.get_status_display === 'Yangi' ?
 
 <style lang="scss">
 .list {
+  text-align: center;
   padding: 22px 28px 22px 16px;
   display: flex;
   align-items: center;
