@@ -1,25 +1,41 @@
 <template>
   <div class="form-label flex flex-col gap-2">
-    <label for="id" class="text-xs text-black">Select options</label>
-    <!-- <div class="select-wrapper"> -->
-      <slot></slot>
-    <!-- </div> -->
+    <p class="text-xs text-black">Select options</p>
+    <div class="custom-select" :class="{ focus: selectActive }" @click="isSelectActive()">
+      <span>{{ selectedValue }}</span>
+      <ul class="custom-wrapper">
+        <li class="custom-option"
+          v-for="(item, key) in formOptions"
+          :key="key" 
+          @click="getOptionVal(item)"
+        >
+          {{ item }}
+        </li>
+      </ul>
+      <img src="../../assets/images/chevron-down.svg" alt="chevron-down">
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const { formOptions } = defineProps<{ formOptions: string[] }>()
+
+const selectActive = ref<boolean>(false)
+const selectedValue = ref<string>(formOptions[0])
+
+const isSelectActive = () => {
+  selectActive.value = !selectActive.value
+}
+const getOptionVal = (newVal: string) => {
+  selectedValue.value = newVal
+}
+
 
 </script>
 
 <style lang="scss">
-/* .select-wrapper {
-  position: relative;
-  padding: 10px 16px;
-  border-radius: 6px;
-  border: 1px solid #E0E7FF;
-  background: rgba(224, 231, 255, 0.20);
-  overflow: hidden;
-} */
 .custom {
   &-select {
     position: relative;

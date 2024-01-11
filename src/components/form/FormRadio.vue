@@ -1,18 +1,18 @@
 <template>
-  <label :for="props.id" class="form-radio">
+  <label :for="item.value" class="form-radio">
     <slot name="radio-input"></slot>
     <span class="checkmark"></span>
     <div class="form-radio__content flex justify-center items-center">
-      <slot name="radio-default">
-        1 000 000 <span>uzs</span>
-      </slot>
+      <!-- <slot name="radio-default"> -->
+        {{ item.text }} <span>uzs</span>
+      <!-- </slot> -->
     </div>
   </label>
 </template>
 
 <script setup lang="ts">
 
-const props = defineProps<{id?: any}>()
+const { item } = defineProps<{item: { value: string, text: string }}>()
 
 </script>
 
@@ -43,7 +43,7 @@ const props = defineProps<{id?: any}>()
     line-height: 20px;
     color: #2E384D;
     font-weight: 500;
-    padding: 16px 14px;
+    /* padding: 16px 14px; */
     border-radius: 5px;
     border: 1px solid #E0E7FF;
     gap: 3px;
