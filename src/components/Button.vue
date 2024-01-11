@@ -29,7 +29,7 @@ const { text } = props
   }
   &-text {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 24px;
     font-weight: 500;
   }
 

@@ -1,12 +1,14 @@
 <template>
   <div class="lists pb-20">
-    <Banner activeItem="sponsors" />
+    <Banner activeItem="sponsors" @open-modal="toggleModalOpen" />
     <div class="lists-content container">
       <ListHeading />
       <List listType="sponsor" />
       <ListBottom listType="sponsor" />
     </div>
   </div>
+
+  <Modal :class="{ active: isOpenModal }" @close-modal="toggleModalOpen"/>
 </template>
 
 <script setup lang="ts">
@@ -14,6 +16,13 @@ import Banner from '../../components/Banner.vue'
 import List from '../../components/Lists/List.vue';
 import ListHeading from '../../components/Lists/ListHeading.vue';
 import ListBottom from '../../components/Lists/ListBottom.vue';
+import Modal from '@/components/Modal.vue';
+
+import { ref } from 'vue';
+
+const isOpenModal = ref(true) 
+
+const toggleModalOpen = (val: boolean) => isOpenModal.value = val
 
 </script>
 

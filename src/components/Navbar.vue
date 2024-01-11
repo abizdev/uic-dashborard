@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar__content container">
-      <router-link :to="{ name: 'main' }" class="navbar--logo">
+      <router-link :to="{ name: 'dashboard' }" class="navbar--logo">
         <img src="../assets/images/nav-logo.png" alt="nav-logo">
       </router-link>
       <div class="navbar__user">
