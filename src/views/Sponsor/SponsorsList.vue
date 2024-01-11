@@ -11,6 +11,7 @@
   <Modal :class="{ active: isOpenModal }" @close-modal="toggleModalOpen">
     <FormOptions :formOptions="formOptions" />
     <FormSponsors :radioItems="sponsorsRadioItems" />
+    <VDatePicker v-model.range.number="range" />
     <div class="modal-bottom">
       <Button v-slot:btn-img text="Tozalash" class="clear">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="#B2B7C1" xmlns="http://www.w3.org/2000/svg">
@@ -36,9 +37,9 @@ import ListBottom from '../../components/Lists/ListBottom.vue';
 import FormOptions from '@/components/form/FormOptions.vue';
 import FormSponsors from '@/components/form/FormSponsors.vue';
 
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-const isOpenModal = ref(true) 
+const isOpenModal = ref(false) 
 const toggleModalOpen = (val: boolean) => isOpenModal.value = val
 
 const sponsorsRadioItems: { value: string, text: string }[] = [
@@ -50,6 +51,8 @@ const sponsorsRadioItems: { value: string, text: string }[] = [
   {value: '50_000_000', text: '50 000 000',},
 ]
 const formOptions: string[] = ['Barchasi', 'Yangi', 'Moderatsiyada', 'Tasdiqlangan', 'Bekor qilingan']
+
+const range = ref({ start: 1578290400000, end: 1578636000000 });
 
 </script>
 
