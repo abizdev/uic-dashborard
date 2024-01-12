@@ -1,17 +1,8 @@
 
 <template>
   <div class="form-sponsors">
-    <p>Homiylik summasi</p>
+    <p class="form-subtitle">Homiylik summasi</p>
     <div class="form-sums__items">
-      <!-- <FormRadio class="default">
-        <template v-slot:radio-input>
-          <input type="radio" name="sponsor-sum" :id="">
-        </template>
-
-        <template class="default" v-slot:radio-default>
-          <span>Barchasi</span>
-        </template>
-      </FormRadio> -->
 
       <label for="all_values" class="form-radio default">
         <input type="radio" name="sponsor-sum" id="all_values">
@@ -47,17 +38,6 @@ const { radioItems } = defineProps<{ radioItems: {value: string, text: string}[]
 
 
 <style lang="scss">
-.form-sponsors {
-  p {
-    font-size: 12px;
-    line-height: 14px;
-    color: #1D1D1F;
-    font-weight: 500;
-    letter-spacing: 1.125px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-}
 .form-sums__items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

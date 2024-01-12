@@ -3,6 +3,7 @@
     <Banner clientCategory="student" />
     <div class="client-content container flex flex-col items-center gap-10">
       <Card clientCategory="student" />
+      <StudentSponsors />
       <img src="../../assets/images/client-bg.png" class="client-bg" alt="client-item" >
     </div>
   </div>
@@ -11,6 +12,7 @@
 <script setup lang="ts">
 import Banner from '@/components/client/Banner.vue';
 import Card from '@/components/client/Card.vue';
+import StudentSponsors from './StudentSponsors.vue';
 
 import { useRoute } from 'vue-router';
 

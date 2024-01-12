@@ -1,7 +1,7 @@
 <template>
   <div class="form-label flex flex-col gap-2">
-    <label :for="id" class="text-xs text-black">{{ labelText }}</label>
-    <slot name="item"></slot>
+    <label :for="id" class="form-subtitle">{{ labelText }}</label>
+    <slot></slot>
   </div>
 </template>
 
@@ -17,14 +17,6 @@ const props = defineProps<FromtInput>()
 
 <style lang="scss">
   .form-label {
-    label {
-      font-size: 12px;
-      line-height: 14px;
-      color: #1D1D1F;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
     input {
       width: 100%;
       border-radius: 6px;

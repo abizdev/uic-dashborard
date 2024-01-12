@@ -1,6 +1,6 @@
 <template>
   <div class="form-label flex flex-col gap-2">
-    <p class="text-xs text-black">Select options</p>
+    <p class="form-subtitle">{{ title }}</p>
     <div class="custom-select" :class="{ focus: selectActive }" @click="isSelectActive()">
       <span>{{ selectedValue }}</span>
       <ul class="custom-wrapper">
@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const { formOptions } = defineProps<{ formOptions: string[] }>()
+const { formOptions, title } = defineProps<{ formOptions: string[], title: string }>()
 
 const selectActive = ref<boolean>(false)
 const selectedValue = ref<string>(formOptions[0])

@@ -64,5 +64,9 @@ const { text } = props
       background: #FFF;
     }
   }
+  &.del {
+    background: #FFECEB;
+    color: #FF4945;
+  }
 }
 </style>

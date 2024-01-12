@@ -21,3 +21,12 @@ body {
   border: 1px solid #36F;
   color: #36F;
 }
+.form-subtitle {
+  font-size: 12px;
+  line-height: 14px;
+  color: #1D1D1F;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.125px;
+  margin-bottom: 8px;
+}

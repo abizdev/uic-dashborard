@@ -2,7 +2,7 @@
   <div class="modal flex flex-col items-center justify-center ">
     <div class="modal-content rounded-xl">
       <div class="modal-top flex justify-between items-center">
-        <h3>Filter</h3>
+        <h3>{{ title }}</h3>
         <button @click="$emit('close-modal', false)">
           <img src="../assets/images/close.svg" alt="close">
         </button>
@@ -16,6 +16,8 @@
 
 <script setup lang="ts">
 import Button from './Button.vue';
+
+const { title } = defineProps<{ title: string | null}>()
 </script>
 
 <style lang="scss">
@@ -38,6 +40,13 @@ import Button from './Button.vue';
   &-top {
     padding-bottom: 28px;
     border-bottom: 1px solid #F5F5F7;
+    
+    h3 {
+      font-size: 24px;
+      line-height: 28px;
+      color: #28293D;
+      font-weight: 700;
+    }
   }
   &-bottom {
     display: flex;

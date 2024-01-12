@@ -1,7 +1,7 @@
 <template>
   <div class="list-heading">
     <span 
-    class="uppercase text-xs text-slate-300 font-medium number"
+    class="uppercase text-xs text-slate-300 font-medium"
     v-for="(item, key) in listHeading"
     :key="key"
     :class="item.class"
@@ -12,16 +12,7 @@
 </template>
 
 <script setup lang="ts">
-  const listHeading: {class: string, text: string}[] = [
-    {class: 'number', text: '#'},
-    {class: 'name', text: 'f.i.sh.'},
-    {class: 'phone', text: 'Tel.Raqami'},
-    {class: 'sum', text: 'Homiylik summasi'},
-    {class: 'sum-spend', text: 'Sarflangan summa'},
-    {class: 'date', text: 'Sana'},
-    {class: 'status', text: 'Holati'},
-    {class: 'comment', text: 'Amallar'},
-  ]
+  const { listHeading } = defineProps<{ listHeading: {class: string, text: string}[] }>()
 </script>
 
 <style lang="scss">
